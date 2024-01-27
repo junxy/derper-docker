@@ -5,6 +5,12 @@
 [![docker pulls](https://img.shields.io/docker/pulls/junxy/derper.svg?color=brightgreen)](https://hub.docker.com/r/junxy/derper)
 [![platfrom](https://img.shields.io/badge/platform-amd64%20%7C%20arm64-brightgreen)](https://hub.docker.com/r/junxy/derper/tags)
 
+Smaller image size achieved by using the Alpine base image.
+
+Automatically updated on a weekly basis.
+
+> forked from fredliang44/derper-docker
+
 # Setup
 
 > required: set env `DERP_DOMAIN` to your domain
