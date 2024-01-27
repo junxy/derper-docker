@@ -9,7 +9,7 @@ RUN go install tailscale.com/cmd/derper@main
 FROM alpine:3.19
 WORKDIR /app
 
-ARG DEBIAN_FRONTEND=noninteractive
+##ARG DEBIAN_FRONTEND=noninteractive
 
 #RUN apt-get update && \
 #    apt-get install -y --no-install-recommends apt-utils && \
