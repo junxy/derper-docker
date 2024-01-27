@@ -1,18 +1,28 @@
-FROM golang:latest AS builder
+##FROM golang:latest AS builder
+FROM golang:alpine3.19 AS builder
 WORKDIR /app
 
 # https://tailscale.com/kb/1118/custom-derp-servers/
 RUN go install tailscale.com/cmd/derper@main
 
-FROM ubuntu
+##FROM ubuntu
+FROM alpine:3.19
 WORKDIR /app
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends apt-utils && \
-    apt-get install -y ca-certificates && \
-    mkdir /app/certs
+#RUN apt-get update && \
+#    apt-get install -y --no-install-recommends apt-utils && \
+#    apt-get install -y ca-certificates && \
+#    mkdir /app/certs
+
+## ref: https://blog.ylx.me/archives/1287.html
+#RUN apk add --no-cache ca-certificates iptables ip6tables iproute2 tzdata && \
+RUN apk add --no-cache ca-certificates tzdata && \
+#    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+#    echo "Asia/Shanghai" > /etc/timezone && \
+    apk del tzdata && \
+    rm -rf /var/cache/apk/*
 
 ENV DERP_DOMAIN your-hostname.com
 ENV DERP_CERT_MODE letsencrypt
