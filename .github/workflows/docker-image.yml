@@ -32,14 +32,31 @@ jobs:
         uses: docker/setup-qemu-action@v3.0.0
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.0.0
-      - name: Build and push
+      - name: Build and push based alpine-3.18
         uses: docker/build-push-action@v5.1.0
         with:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
+          build-args: |
+            ALPINE_VERSION=3.18
+          tags: |
+            ghcr.io/junxy/derper:alpine-3.18
+            junxy/derper:alpine-3.18
+            junxy/derper:alpine-3.18-${{ steps.date.outputs.date }}
+          #junxy/derper:${{ github.sha }}
+      - name: Build and push based alpine-3.19
+        uses: docker/build-push-action@v5.1.0
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          build-args: |
+            ALPINE_VERSION=3.19
           tags: |
             ghcr.io/junxy/derper:latest
+            ghcr.io/junxy/derper:alpine-3.19
             junxy/derper:latest
+            junxy/derper:alpine-3.19
             junxy/derper:${{ steps.date.outputs.date }}
-          #junxy/derper:${{ github.sha }}
+            junxy/derper:alpine-3.18-${{ steps.date.outputs.date }}
