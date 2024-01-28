@@ -42,4 +42,4 @@ jobs:
             ghcr.io/junxy/derper:latest
             junxy/derper:latest
             junxy/derper:${{ steps.date.outputs.date }}
-            junxy/derper:${{ github.sha }}
+          #junxy/derper:${{ github.sha }}
