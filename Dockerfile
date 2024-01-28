@@ -24,7 +24,8 @@ RUN apk add --no-cache ca-certificates tzdata && \
 #    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 #    echo "Asia/Shanghai" > /etc/timezone && \
     apk del tzdata && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* && \
+    mkdir /app/certs
 
 ENV DERP_DOMAIN your-hostname.com
 ENV DERP_CERT_MODE letsencrypt
