@@ -1,5 +1,5 @@
 ##FROM golang:latest AS builder
-ARG ALPINE_VERSION=3.18
+ARG ALPINE_VERSION=3.19
 
 FROM golang:alpine${ALPINE_VERSION} AS builder
 WORKDIR /app
