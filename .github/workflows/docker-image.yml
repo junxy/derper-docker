@@ -41,9 +41,9 @@ jobs:
           build-args: |
             ALPINE_VERSION=3.18
           tags: |
-            ghcr.io/junxy/derper:alpine-3.18
-            junxy/derper:alpine-3.18
-            junxy/derper:alpine-3.18-${{ steps.date.outputs.date }}
+            ghcr.io/junxy/derper:alpine3.18
+            junxy/derper:alpine3.18
+            junxy/derper:alpine3.18-${{ steps.date.outputs.date }}
           #junxy/derper:${{ github.sha }}
       - name: Build and push based alpine-3.19
         uses: docker/build-push-action@v5.1.0
@@ -55,8 +55,8 @@ jobs:
             ALPINE_VERSION=3.19
           tags: |
             ghcr.io/junxy/derper:latest
-            ghcr.io/junxy/derper:alpine-3.19
+            ghcr.io/junxy/derper:alpine3.19
             junxy/derper:latest
-            junxy/derper:alpine-3.19
+            junxy/derper:alpine3.19
             junxy/derper:${{ steps.date.outputs.date }}
-            junxy/derper:alpine-3.18-${{ steps.date.outputs.date }}
+            junxy/derper:alpine3.19-${{ steps.date.outputs.date }}
