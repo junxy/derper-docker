@@ -1,12 +1,14 @@
 ##FROM golang:latest AS builder
-FROM golang:alpine3.19 AS builder
+ARG ALPINE_VERSION=3.18
+
+FROM golang:alpine${ALPINE_VERSION} AS builder
 WORKDIR /app
 
 # https://tailscale.com/kb/1118/custom-derp-servers/
 RUN go install tailscale.com/cmd/derper@main
 
 ##FROM ubuntu
-FROM alpine:3.19
+FROM alpine:${ALPINE_VERSION}
 WORKDIR /app
 
 ##ARG DEBIAN_FRONTEND=noninteractive
