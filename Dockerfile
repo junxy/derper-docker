@@ -5,7 +5,7 @@ FROM golang:alpine${ALPINE_VERSION} AS builder
 WORKDIR /app
 
 # https://tailscale.com/kb/1118/custom-derp-servers/
-RUN go install tailscale.com/cmd/derper@main
+RUN go install tailscale.com/cmd/derper@latest
 
 ##FROM ubuntu
 FROM alpine:${ALPINE_VERSION}
