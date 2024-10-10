@@ -10,8 +10,8 @@ WORKDIR /app
 RUN go install tailscale.com/cmd/derper@latest
 
 ##FROM ubuntu
-#FROM alpine:${ALPINE_VERSION}
-FROM golang:alpine AS runtime
+FROM alpine:${ALPINE_VERSION}
+#FROM golang:alpine
 WORKDIR /app
 
 ##ARG DEBIAN_FRONTEND=noninteractive
